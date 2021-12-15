@@ -1,0 +1,16 @@
+# Simple service unit file for starting pulse audio
+# startup configurations with systemd.
+#
+#
+
+[Unit]
+Description=PulseAudio Daemon
+After=network.target
+
+[Service]
+Type=idle
+PrivateTmp=true
+ExecStart=/usr/bin/pulseaudio --system --realtime --disallow-exit --no-cpu-limit
+
+[Install]
+WantedBy=multi-user.target
